@@ -1,5 +1,5 @@
 from langchain import PromptTemplate
-from langchain_comminity.llms import LlamaCpp
+from langchain_community.llms import LlamaCpp
 from langchain.chains import RetrievalQA
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from fastapi import FastAPI, Request, Form, Response
@@ -12,11 +12,11 @@ from langchain_community.vectorstores import Qdrant
 import os
 import json
 
-app = FASTAPI()
+app = FastAPI()
 
 templates = Jinja2Templates(directory = 'templates')
 
-app.mount("/static", StaticFIles(directory="static"), name = "static")
+app.mount("/static", StaticFiles(directory="static"), name = "static")
 
 local_llm = "BioMistral-7B.Q4_k_m.gguf"
 
